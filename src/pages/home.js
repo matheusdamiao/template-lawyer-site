@@ -4,30 +4,47 @@ import MenuMobile from '../components/MenuMobile'
 import HeroSection from '../components/HeroSection'
 
 
+import Media from 'react-media';
+import AboutSection from '../components/AboutSection';
 
 const Home = () => {
   
-  const [isMobile, setMobile] = useState(false)
+  // const [isMobile, setMobile] = useState(false)
 
-  useEffect(()=>{
-      const checkSize = ()=>{
-          const resize = window.innerWidth < 900
-          setMobile(resize)
-      }
-     
-      window.addEventListener('resize', ()=> checkSize())
+  // useEffect(()=>{
+  //     const checkSize = ()=>{
+  //         const resize = window.innerWidth < 900
+  //          setMobile(resize)          
+  //     }
+
+  //     window.addEventListener('resize', ()=> checkSize())
       
-      return window.removeEventListener('resize', ()=> checkSize())
+  //     return window.removeEventListener('resize', ()=> checkSize())
 
-  },[])
+  // },[isMobile])
 
 
+ 
   return (
     <>
-       {isMobile ? <MenuMobile/> : <MenuDesktop/>}
-       <HeroSection />
-    </>
-  )
+      <Media query="(max-width: 900px)" render={()=>
+      (
+        <MenuMobile/> 
+      )}
+      />
+
+      <Media query="(min-width: 900px)" render={()=>
+      (
+        <MenuDesktop/> 
+      )}
+      />
+            
+      <HeroSection />
+      <AboutSection/>
+
+     </>
+
+   )
 }
 
 export default Home

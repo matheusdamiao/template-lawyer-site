@@ -1,12 +1,11 @@
 import styled, {keyframes} from 'styled-components'
 import React, { useState } from 'react'
 import heroBg from '../images/hero-background.svg'
-import arrow from '../images/arrow-down.svg'
 import zap from '../images/zap-logo.svg'
 
 const StyledHeroSection = styled.div`
     width: 100%;
-    height: calc(110vh - 200px);
+    height: calc(120vh - 200px);
     background-image: url(${heroBg});
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,8 +17,8 @@ const StyledHeroSection = styled.div`
     padding-top: 200px;
 
     @media screen and (max-width: 760px){
-        padding-top: 100px;
-
+        padding-top: 50px;
+        background-position: 50% 10%;
     }
     
 `
@@ -107,62 +106,25 @@ const Btn = styled.button`
 
 `
 
-const slide = keyframes`
-    0% {
-        transform: translate(0px, 0px)
 
-    }
-
-    50% {
-        transform: translate(0px, 15px)
-
-    }
-
-    100% {
-        transform: translate(0px, 0px)
-
-    }
-`
-
-const ArrowDown = styled.a`
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background-image: url(${arrow});
-    background-repeat: no-repeat;
-    left: 48%;
-    top: 90%;
-    animation: ${slide} 2s ease-in-out infinite;
-    
-    :hover{
-        cursor: pointer;
-            
-    }
-
-    @media screen and (max-width: 760px){
-        top: 95%;
-        
-    }
-
-    @media screen and (max-width: 400px){
-        top: 98%;
-        left: 45%;
-    }
-`
-
-const Zap = styled.a`
-    background-image: url(${zap});
-    background-repeat: no-repeat;
+const Zap = styled.img`
     position: fixed;
-    top: 88%;
-    right: 5%;
-    width: 90px;
+    top: 85%;
+    right: 0.5%;
     height: 100px;
-    transition: 1s;
+    width: 80px;
+    transition: 0.5s;
 
     :hover{
         cursor: pointer;
         transform: scale(1.1);
+    }
+
+
+    @media screen and (max-width: 760px){
+        width: 50px;
+        top: 86%;
+        right: 5%;
     }
 `
 
@@ -173,12 +135,15 @@ const HeroSection = () => {
         <Linha/>
         <SubTitle>Ajudamos você a solucionar problemas</SubTitle>
         <Btn>AGENDE UMA REUNIÃO</Btn>
-        <ArrowDown href='#'/>
-        <Zap />
+        
+        <Zap src={zap}/>
     </StyledHeroSection>
   )
 }
 
+
+
+export {Btn};
 export default HeroSection
 
 
