@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: master
+
+publish_mode: editorial_workflow
+
+media_folder: static/assets
+public_folder: /assets
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          date_format: "DD.MM.YYYY",
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          pattern: [".{12,}", "Must have at least 12 characters"],
+        }
+      - { label: "Hashtags", name: "hashtags", widget: "list", max: 4 }
+      - { label: "imagem", name: "imagem", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "select",
+          options: ["Thays Medeiros", "Vanessa Cupulille"],
+        }
+      - { label: "Avatar", name: "avatar", widget: "image" }

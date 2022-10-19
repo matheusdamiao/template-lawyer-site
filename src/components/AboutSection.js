@@ -27,7 +27,7 @@ const Foto = styled.img`
     width: 600px;
     position: relative;
     right: 90%;
-    bottom: 43%;
+    bottom: 90%;
     opacity: 0.8;
     
 
@@ -55,6 +55,8 @@ const Div = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
+    height: 100%;
     width: 50%;
     
 
