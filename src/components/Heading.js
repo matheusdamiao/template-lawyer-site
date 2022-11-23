@@ -11,6 +11,7 @@ const H1 = styled.h1`
   margin: 0;
   margin-top: 20px;
   padding: 0 20px;
+  text-align: ${({ isCenter }) => (isCenter ? "center" : "left")};
 
   @media screen and (max-width: 800px) {
     font-size: 27px;
@@ -70,7 +71,10 @@ const Heading = ({ h3, h1, h2, isWhite, isCenter }) => {
     >
       <H3 isWhite={isWhite}> {h3}</H3>
       <Linha />
-      <H1 isWhite={isWhite}> {h1}</H1>
+      <H1 isWhite={isWhite} isCenter={isCenter}>
+        {" "}
+        {h1}
+      </H1>
       <H2 isWhite={isWhite} isCenter={isCenter}>
         {" "}
         {h2}

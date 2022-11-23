@@ -109,7 +109,7 @@ const dataCards = [
   },
 ]
 
-export const Serviços = () => {
+export const ServicesSection = () => {
   return (
     <Wrapper>
       <Heading

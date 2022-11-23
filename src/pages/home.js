@@ -5,7 +5,8 @@ import HeroSection from "../components/HeroSection"
 
 import Media from "react-media"
 import AboutSection from "../components/AboutSection"
-import { Serviços } from "../components/Serviços"
+import { ServicesSection } from "../components/ServicesSection"
+import { NumbersSection } from "../components/NumbersSection"
 
 const Home = () => {
   return (
@@ -16,7 +17,8 @@ const Home = () => {
 
       <HeroSection />
       <AboutSection />
-      <Serviços />
+      <ServicesSection />
+      <NumbersSection />
     </>
   )
 }
