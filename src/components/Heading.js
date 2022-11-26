@@ -5,11 +5,11 @@ const H1 = styled.h1`
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
-  font-size: 61px;
+  font-size: 50px;
   line-height: 74px;
   color: ${({ isWhite }) => (isWhite ? "#FFFF" : "#00041c")};
   margin: 0;
-  margin-top: 20px;
+  margin-top: 0px;
   padding: 0 20px;
   text-align: ${({ isCenter }) => (isCenter ? "center" : "left")};
 
@@ -23,7 +23,7 @@ const H2 = styled.h2`
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 200;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 136.4%;
   color: ${({ isWhite }) => (isWhite ? "#FFFF" : "#00041c")};
   padding: 0 20px;
