@@ -9,6 +9,7 @@ const StyledHeroSection = styled.div`
     background-image: url(${heroBg});
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     background-color: #00041C;
     display: flex;
     flex-direction: column;

@@ -16,7 +16,7 @@ const Menu = styled.div`
     align-items: center;
     background-color: #00041C;
     top: 0;
-    position: fixed;
+    /* position: fixed; */
     z-index: 999;
 `
 
