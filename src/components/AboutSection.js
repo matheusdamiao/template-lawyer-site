@@ -1,8 +1,13 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import Heading from "./Heading"
 import pic from "../images/about-pic.svg"
 import { Btn } from "./HeroSection"
+import {ArrowUpSquareFill} from '@styled-icons/bootstrap/ArrowUpSquareFill'
+
+
+
+
 
 const Wrapper = styled.div`
   margin-top: 200px;
@@ -90,9 +95,68 @@ const StyledBtn = styled(Btn)`
   }
 `
 
+export const ReturnBtn = styled(ArrowUpSquareFill)`
+    position: fixed;
+    /* top: 80%; */
+    /* max-width: 50px; */
+    /* width: 100%; */
+    color: gray;
+    max-width: 50px;
+    cursor: pointer;
+`
+
+export const ReturnDiv = styled.a`
+    width: 50px;
+    position: fixed;
+    top: 90%;
+    z-index: 999;
+    transition: 0.2s;
+    
+    :hover {
+      transform: translateY(-15px)
+    }
+    
+`
+
+
+
 const AboutSection = () => {
+
+
+  const [isReturnBtn, setIsReturnBtn] = useState(false)
+  const [isClicked, setIsClicked] = useState(false)
+
+  
+
+  useEffect(()=>{
+
+    let aboutSection = document.getElementById('about');
+    let sticky = aboutSection.offsetTop;
+    console.log(sticky)
+ 
+    const isBrowser = typeof window !== "undefined";
+    if(isBrowser) {
+      window.onscroll = () =>{
+        if(window.scrollY >= sticky){
+          setIsReturnBtn(true)
+        }
+        else {
+          setIsReturnBtn(false)
+        }
+      } 
+    }
+
+
+  },[])
+
+
+
+
+
+ 
+
   return (
-    <Wrapper>
+    <Wrapper id='about'>
       <Div>
         <Heading
           isWhite={false}
@@ -111,6 +175,8 @@ const AboutSection = () => {
         <StyledBtn>Conheça melhor</StyledBtn>
         <Foto src={pic} />
       </Div>
+      
+      {isReturnBtn && <ReturnDiv href='#hero'> <ReturnBtn/> </ReturnDiv> }
     </Wrapper>
   )
 }

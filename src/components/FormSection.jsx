@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components'
 import Heading from "./Heading"
 import formBg from '../images/backgroundForm.svg'
-import {PhoneCall} from '@styled-icons/feather/PhoneCall'
+import {PhoneCall} from '@styled-icons/boxicons-solid/PhoneCall'
+import {LocationPin} from '@styled-icons/entypo/LocationPin'
+import { TimeFive } from '@styled-icons/boxicons-solid/TimeFive'
+import {ArrowUpSquareFill} from '@styled-icons/bootstrap/ArrowUpSquareFill'
 
 export const Wrapper = styled.div`
     background-image: url(${formBg});
@@ -62,6 +65,16 @@ export const IconPhone = styled(PhoneCall)`
     color: #634636;
 `
 
+export const IconLocation = styled(LocationPin)`
+ max-width: 50px;
+    color: #634636;
+`
+
+export const IconTime = styled(TimeFive)`
+max-width: 40px;
+    color: #634636;
+`
+
 export const InfoDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -92,7 +105,85 @@ export const WrapperForm = styled.div`
     width: 100%;
     border-radius: 9px;
 `
+
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 60px;
+    min-height: 400px;
+    height: 100%;
+    /* width: 100%; */
+`
+
+export const LabelInput = styled.label`
+    font-size: 11px;
+    font-family: 'Montserrat';
+    margin-bottom: 10px;
+`
+
+export const Input = styled.input`
+    height: 50px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 9px;
+    padding-left: 20px;
+`
+export const InputText = styled.textarea`
+    min-height: 50px;
+    max-width: 360px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 9px;
+    padding-left: 20px;
+    padding-top: 10px;
+
+    @media screen and (max-width: 500px) {
+        max-width: 300px;
+        min-height: 100px;
+
+    }
+`
+
+export const Button = styled.button`
+    width: 100%;
+    min-height: 70px;
+    background-color: #634636;
+    display: inline;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    border-radius: 9px;
+
+
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+    
+
+    }
+`
+export const Box = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+
+
+
 export const FormSection = () =>{
+
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert('Feito!')
+
+    }
 
 
     return(
@@ -125,7 +216,7 @@ export const FormSection = () =>{
 
                     <WrapperInfo>
                         <IconDiv>
-                            <IconPhone />
+                            <IconLocation />
                         </IconDiv>
                         <InfoDiv>
                             <Label>
@@ -139,7 +230,7 @@ export const FormSection = () =>{
 
                     <WrapperInfo>
                         <IconDiv>
-                            <IconPhone />
+                            <IconTime />
                         </IconDiv>
                         <InfoDiv>
                             <Label>
@@ -154,9 +245,28 @@ export const FormSection = () =>{
                 </WrapperContato>
 
                 <WrapperForm>
+                    <Form onSubmit={handleSubmit}>
+                        <Box>
+                            <LabelInput >Insira seu nome:</LabelInput>
+                            <Input placeholder='nome'/>
+                        </Box>
+
+                        <Box>
+                            <LabelInput >Seu telefone ou e-mail</LabelInput>
+                            <Input placeholder='telefone/e-mail'/>
+                        </Box>
+
+                        <Box>
+                            <LabelInput >Conte-nos sobre seu caso</LabelInput>
+                            <InputText placeholder='mensagem'/>
+                        </Box>
+                        
+                        <Button type='submit'>Enviar mensagem</Button>
+                    </Form>
 
                 </WrapperForm>
              </WrapperContent>
+             
         </Wrapper>
     )
 }

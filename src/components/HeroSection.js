@@ -127,17 +127,20 @@ const Zap = styled.img`
         top: 86%;
         right: 5%;
     }
+
+
 `
+
 
 const HeroSection = () => {
   return (
-    <StyledHeroSection>
+    <StyledHeroSection id='hero'>
         <Title>Soluções jurídicas com respeito e profissionalismo</Title>
         <Linha/>
         <SubTitle>Ajudamos você a solucionar problemas</SubTitle>
         <Btn>AGENDE UMA REUNIÃO</Btn>
         
-        <Zap src={zap}/>
+        {/* <Zap src={zap}/> */}
     </StyledHeroSection>
   )
 }

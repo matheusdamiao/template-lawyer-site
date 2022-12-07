@@ -13,6 +13,12 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 
 export const GlobalStyle = createGlobalStyle`
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
     body {
 
         .swiper {
