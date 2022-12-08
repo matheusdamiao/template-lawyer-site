@@ -64,7 +64,7 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const Wrapper = styled.div`
-  background-color: #00041c;
+  background-color: #0A0C1A;
   padding-top: 100px;
   padding-bottom: 150px;
   height: 100%;

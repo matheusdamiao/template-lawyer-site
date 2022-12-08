@@ -5,7 +5,7 @@ import formBg from '../images/backgroundForm.svg'
 import {PhoneCall} from '@styled-icons/boxicons-solid/PhoneCall'
 import {LocationPin} from '@styled-icons/entypo/LocationPin'
 import { TimeFive } from '@styled-icons/boxicons-solid/TimeFive'
-import {ArrowUpSquareFill} from '@styled-icons/bootstrap/ArrowUpSquareFill'
+
 
 export const Wrapper = styled.div`
     background-image: url(${formBg});

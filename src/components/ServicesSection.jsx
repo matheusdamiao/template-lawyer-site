@@ -55,7 +55,7 @@ export const Wrapper = styled.div`
   padding-top: 100px;
   width: 100%;
   height: 100%;
-  background-color: #00041c;
+  background-color: #0A0C1A;
 `
 
 export const WrapperContent = styled.div`

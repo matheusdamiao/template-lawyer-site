@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Site de advogado`,
     author: {
-      name: `Kyle Mathews`,
+      name: `Matheus Damião`,
       summary: `who lives and works in San Francisco building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `Um projeto de um site institucional com um blog para um advogado`,
+    siteUrl: `https://www.site-advogado-template.netlify.app`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `omatheusdamiao`,
     },
   },
   plugins: [

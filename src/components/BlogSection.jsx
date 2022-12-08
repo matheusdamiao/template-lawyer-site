@@ -9,7 +9,7 @@ import { graphql } from 'gatsby'
 import { BlogCard } from './BlogCard';
 
 export const Wrapper = styled.div`
-     background-color: #00041c;
+     background-color: #0A0C1A;
   padding-top: 100px;
   padding-bottom: 150px;
   height: 100%;
@@ -111,7 +111,7 @@ export const BlogSection = () =>{
 
     const blogPosts = data.allMarkdownRemark.nodes
     const [post1, post2, post3] = blogPosts
-    console.log(post1.frontmatter.title, post2, post3)
+   
 
     const link1 = post1.fields.slug
     const title1 = post1.frontmatter.title
@@ -121,14 +121,6 @@ export const BlogSection = () =>{
     const author1 = post1.frontmatter.author
     const avatar1 = post1.frontmatter.avatar
     const date1 = post1.frontmatter.date
-
-
-
-
-
-
-    const title2 = post2.frontmatter.title
-    const title3 = post3.frontmatter.title
 
 
     return(
@@ -174,28 +166,28 @@ export const BlogSection = () =>{
                     <SwiperSlideStyled>
                         
                         <BlogCard 
-                          title={title1}
-                          imagem={imagem1}
-                          date={date1}
-                          author={author1} 
-                          avatar={avatar1}
-                          hashtags={hashtags1} 
-                          link={link1}
-                          description={description1}
+                       title={title1}
+                       imagem={imagem1}
+                       date={date1}
+                       author={author1} 
+                       avatar={avatar1}
+                       hashtags={hashtags1} 
+                       link={link1}
+                       description={description1}
                          />
                     </SwiperSlideStyled>
 
                     <SwiperSlideStyled>
                         
                         <BlogCard 
-                          title={title1}
-                          imagem={imagem1}
-                          date={date1}
-                          author={author1} 
-                          avatar={avatar1}
-                          hashtags={hashtags1} 
-                          link={link1}
-                          description={description1}
+                        title={title1}
+                        imagem={imagem1}
+                        date={date1}
+                        author={author1} 
+                        avatar={avatar1}
+                        hashtags={hashtags1} 
+                        link={link1}
+                        description={description1}
                          />
                     </SwiperSlideStyled>
 

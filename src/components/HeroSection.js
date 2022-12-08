@@ -47,9 +47,9 @@ const Title = styled.h1`
 
 const Linha = styled.span`
     
-    border: 3px solid #634636;
+    border: 3px solid #B29786;
     width: 300px;
-    margin-right: 90px;
+    margin-right: 100px;
 
     
     @media screen and (max-width: 760px){
@@ -70,7 +70,7 @@ const SubTitle = styled.h3`
     letter-spacing: -0.218294px;
     color: #FFFFFF;
     padding-right: 90px;
-
+    margin-top: 20px;
 
     @media screen and (max-width: 760px){
         font-size: 20px;

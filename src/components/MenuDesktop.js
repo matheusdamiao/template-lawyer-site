@@ -24,7 +24,7 @@ const Menu = styled.div`
 const TopBar = styled.div`
     width: 100%;
     height: 40px;
-    background-color: #634636;
+    background-color: rgba(64, 86, 103, 0.5);
     display: flex;
     justify-content: flex-end;
     color: white;
