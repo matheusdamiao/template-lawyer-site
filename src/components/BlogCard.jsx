@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
     flex-direction: column;
     background-color:white;
     border-radius: 9px;
+
+    @media screen and (max-width: 500px) {
+        min-width: 250px;
+    }
 `
 export const Imagem = styled.img`
     max-height: 200px;
@@ -35,12 +39,16 @@ export const Title = styled.h3`
         font-size: 30px;
         margin: 0;
         font-weight: 500;
-
+        
+        @media screen and (max-width: 500px) {
+        font-size: 25px;
+    }
 `
 export const WrapperInfo = styled.div`
     display: flex;
     align-items: center;
     margin-top: 10px;
+    gap: 10px;
 `
 
 export const Date = styled.small`
@@ -48,13 +56,20 @@ export const Date = styled.small`
     font-family: 'Montserrat';
     font-size: 10px;
 `
-export const Hashtag = styled.p`
-    
+export const Hashtag = styled.p`    
+    padding-left: 20px;
+    font-family: 'Montserrat';
+    font-size: 12px;
 `
 export const Body = styled.p`
     font-family: 'Montserrat';
     font-weight: 300;
     font-size: 12px;
+    line-height: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 `
 
 export const Author = styled.div`
@@ -79,6 +94,12 @@ export const AvatarInfo = styled.div`
 
 export const Name = styled.h3`
     margin: 0;
+    font-family: 'Montserrat';
+    font-size: 15px;
+
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+    }
 `
 export const Bio = styled.h5`
     font-family: 'Montserrat';
@@ -89,8 +110,8 @@ export const Bio = styled.h5`
 
 export const BlogCard = ({title, imagem, date, author, avatar, hashtags, link, description}) =>{
 
-   let tags = hashtags?.join(',')
-    
+   let tags = hashtags?.join(', ')
+    console.log(tags)
 
     return(
         <Wrapper>
