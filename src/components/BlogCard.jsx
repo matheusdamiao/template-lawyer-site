@@ -82,9 +82,7 @@ export const Author = styled.div`
 export const Avatar = styled.img`
     max-height: 50px;
     
-    
 `
-
 export const AvatarInfo = styled.div`
     display: flex;
     flex-direction: column;
@@ -124,6 +122,7 @@ export const BlogCard = ({title, imagem, date, author, avatar, hashtags, link, d
                     <Hashtag>{tags}</Hashtag>
                 </WrapperInfo>
                 <Body>{ description} </Body>
+                <a href={link}>Leia mais</a>
                 <Author>
                     <Avatar src={avatar}/>
                     <AvatarInfo>

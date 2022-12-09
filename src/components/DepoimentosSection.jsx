@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
 
+
         .swiper {
           width: 90%;
           display: flex;
