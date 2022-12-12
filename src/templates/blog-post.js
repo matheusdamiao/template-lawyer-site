@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from 'styled-components'
 import { Link, graphql } from "gatsby"
 
@@ -8,7 +8,11 @@ import Media from "react-media"
 import MenuMobile from "../components/MenuMobile"
 import MenuDesktop from "../components/MenuDesktop"
 import { BlogCard } from "../components/BlogCard"
-
+import { FooterSection } from "../components/FooterSection"
+import {LinkedinWithCircle } from '@styled-icons/entypo-social/LinkedinWithCircle'
+import {FacebookCircle} from '@styled-icons/boxicons-logos/FacebookCircle'
+import {TwitterWithCircle} from '@styled-icons/entypo-social/TwitterWithCircle'
+import { AddLink } from '@styled-icons/material/AddLink'
 
 
 export const WrapperPost = styled.div`
@@ -18,6 +22,13 @@ export const WrapperPost = styled.div`
   background-color: #0A0C1A;
   color: white;
   padding-bottom: 100px;
+
+
+  a{
+    text-decoration: none;
+   
+  }
+  
 `
 
 export const Heading = styled.div`
@@ -79,7 +90,20 @@ export const Bio = styled.p`
     font-size: 12px;
     margin: 0;
 `
-export const Tags = styled.p`
+export const Tags = styled.div`
+  display: flex;
+  gap: 15px;
+  color: black;
+  align-items: center;
+`
+
+export const Tag = styled.p`
+   font-family: 'Montserrat';
+  background-color: rgb(25, 40, 133);
+  padding: 4px 15px;
+  color: white;
+  font-size: 12px;
+  border-radius: 9px;
 `
 export const PostBody = styled.p`
     padding-top: 50px;
@@ -108,10 +132,12 @@ export const Line = styled.span`
 export const OldPost = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
 
-  
-
+  a {
+    color: white;
+  }
 `
 
 export const NextPost = styled.div`
@@ -120,15 +146,122 @@ export const NextPost = styled.div`
   align-items: flex-end;
   gap: 10px;
 
+  a {
+    color: white;
+  }
+`
 
+export const SharePost = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+`
+export const ShareTitle = styled.h3`
+font-family: 'Montserrat';
+  font-size: 14px;
+  font-weight: 400;
+`
+
+export const Links = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    a{
+      color: rgb(26, 26, 255);
+    }
+
+
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    
+`
+
+export const LinkedinIcon = styled(LinkedinWithCircle)`
+ width: 50px;
+ transition: 0.2s;
+
+:hover {
+  color: white;
+}
+`
+
+export const FacebookIcon = styled(FacebookCircle)`
+  width: 55px;
+  transition: 0.2s;
+
+:hover {
+  color: white;
+}
+`
+
+export const TwitterIcon = styled(TwitterWithCircle)`
+  width: 50px;
+  transition: 0.2s;
+
+:hover {
+  color: white;
+}
+`
+
+export const LinkIcon = styled(AddLink)`
+  width: 50px;
+  color: rgb(26, 26, 255);
+  
+  transition: 0.2s;
+
+  :hover {
+    color: white;
+  }
 
 `
+
+export const CopyLink = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+    font-family: 'Montserrat';
+  font-size: 10px;
+  cursor: pointer;
+  color: rgb(26, 26, 255);
+  transition: 0.2s;
+  max-height: 55px;
+
+  :hover {
+    color: white;
+  }
+`
+
+
 
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
 }) => {
+
+  const [copyStatus, setCopyStatus] = useState('Copiar link')
+
+
+  const copyLink = () => {
+      if(copyStatus === 'Copiado!') {
+        setCopyStatus('Copiar link')
+        navigator.clipboard.writeText('');
+        return
+      }
+        navigator.clipboard.writeText(`${site.siteMetadata.siteUrl + post.fields.slug}`)
+        setCopyStatus('Copiado!')
+
+  }
   
   return (
    <>
@@ -150,51 +283,74 @@ const BlogPostTemplate = ({
           </Info>
         </Author>
         <Tags>
-          {post.frontmatter.hashtags}
+          {post.frontmatter.hashtags.map((tag)=>{
+            return <Tag>{tag}</Tag>
+          })}
         </Tags>
       </PostInfo>
 
       <PostImg src={post.frontmatter.imagem} alt=''/>
       <PostBody dangerouslySetInnerHTML={{ __html: post.html }} />
 
+      <SharePost>
+           <ShareTitle> Compartilhe este artigo</ShareTitle>
+           <Links>
+              <ul>
+                <a rel='noopener noreferrer' href={'https://www.linkedin.com/shareArticle?url=' + site.siteMetadata.siteUrl + post.fields.slug} target='_blank' ><LinkedinIcon /></a>
+              </ul>
+              <ul>
+                <a rel='noopener noreferrer' href={'https://www.facebook.com/sharer/sharer.php?u=' + site.siteMetadata.siteUrl + post.fields.slug} target='_blank' ><FacebookIcon /></a>
+              </ul>
+              <ul>
+                <a rel='noopener noreferrer' href={'https://www.twitter.com/share?url=' + site.siteMetadata.siteUrl + post.fields.slug} target='_blank' ><TwitterIcon /></a>
+              </ul>
+              <ul>
+                <CopyLink onClick={()=> copyLink()}> <LinkIcon /> {copyStatus}  </CopyLink>
+              </ul>
+              
+          </Links>
+      </SharePost>
       <Line/>
       <OtherPosts>
         
-        {next && 
-        <OldPost>
-          <a href={next.fields.slug} alt=''>Artigo anterior</a>
-          <BlogCard
-          title={next.frontmatter.title}
-          link={next.fields.slug}
-          imagem={next.frontmatter.imagem}
-          data={next.frontmatter.date}
-          description={next.frontmatter.description}
-          hashtags={next.frontmatter.hashtags}
-          author={next.frontmatter.author}
-          avatar={next.frontmatter.avatar}
-          />
-        </OldPost>  
-        }
 
-        {previous && 
-          <NextPost>
-            <a href={previous.fields.slug} alt=''>Próximo artigo</a>
-            <BlogCard
-            title={previous.frontmatter.title}
-            link={previous.fields.slug}
-            imagem={previous.frontmatter.imagem}
-            data={previous.frontmatter.date}
-            description={previous.frontmatter.description}
-            hashtags={previous.frontmatter.hashtags}
-            author={previous.frontmatter.author}
-            avatar={previous.frontmatter.avatar}
-            />
-          </NextPost>
+        {previous &&
+                <OldPost>
+                <a href={next.fields.slug} alt=''>Artigo anterior</a>
+                <BlogCard
+                title={next.frontmatter.title}
+                link={next.fields.slug}
+                imagem={next.frontmatter.imagem}
+                data={next.frontmatter.date}
+                description={next.frontmatter.description}
+                hashtags={next.frontmatter.hashtags}
+                author={next.frontmatter.author}
+                avatar={next.frontmatter.avatar}
+                />
+              </OldPost>  
+        
         } 
+
+
+        {next && 
+              <NextPost>
+              <a href={previous.fields.slug} alt=''>Próximo artigo</a>
+              <BlogCard
+              title={previous.frontmatter.title}
+              link={previous.fields.slug}
+              imagem={previous.frontmatter.imagem}
+              data={previous.frontmatter.date}
+              description={previous.frontmatter.description}
+              hashtags={previous.frontmatter.hashtags}
+              author={previous.frontmatter.author}
+              avatar={previous.frontmatter.avatar}
+              />
+            </NextPost>
+         } 
 
       </OtherPosts>
     </WrapperPost>
-
+    <FooterSection />
    </>
 
   )
@@ -220,6 +376,7 @@ query BlogPost(
   site {
     siteMetadata {
       title
+      siteUrl
     }
   }
 
@@ -227,6 +384,9 @@ query BlogPost(
     id
     excerpt(pruneLength: 160)
     html
+    fields {
+      slug
+    }
     frontmatter {
       title
       date(formatString: "DD/MM/YYYY")

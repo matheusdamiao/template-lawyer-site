@@ -6,7 +6,7 @@ module.exports = {
       summary: `who lives and works in San Francisco building useful things.`,
     },
     description: `Um projeto de um site institucional com um blog para um advogado`,
-    siteUrl: `https://www.site-advogado-template.netlify.app`,
+    siteUrl: `https://site-advogado-template.netlify.app`,
     social: {
       twitter: `omatheusdamiao`,
     },

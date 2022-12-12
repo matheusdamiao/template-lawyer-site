@@ -19,6 +19,9 @@ export const Wrapper = styled.div`
 export const GlobalStyle = createGlobalStyle`
  body {
 
+
+
+
 .swiper {
   width: 75%;
   display: flex;

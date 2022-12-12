@@ -106,6 +106,10 @@ export const Bio = styled.h5`
     margin: 0;
 `
 
+export const Link = styled.a`
+    color: #4d4d4d;
+`
+
 export const BlogCard = ({title, imagem, date, author, avatar, hashtags, link, description}) =>{
 
    let tags = hashtags?.join(', ')
@@ -122,7 +126,7 @@ export const BlogCard = ({title, imagem, date, author, avatar, hashtags, link, d
                     <Hashtag>{tags}</Hashtag>
                 </WrapperInfo>
                 <Body>{ description} </Body>
-                <a href={link}>Leia mais</a>
+                <Link href={link}>Leia mais</Link>
                 <Author>
                     <Avatar src={avatar}/>
                     <AvatarInfo>

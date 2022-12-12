@@ -10,6 +10,7 @@ import styled from 'styled-components'
 import heroBg from '../images/hero-blog.svg'
 import {Search} from '@styled-icons/evil/Search'
 import {BlogCard} from '../components/BlogCard.jsx'
+import { FooterSection } from "../components/FooterSection"
 
 
 const BlogIndex = ({ data }) => {
@@ -107,12 +108,13 @@ const BlogIndex = ({ data }) => {
         <SearchDiv >
           <SearchIcon/>
           <Input placeholder='pesquisar' type='text' onChange={e=> inputFunction(e)}/>
-          <Button>Pesquisar </Button>
+          {/* <Button>Pesquisar </Button> */}
         </SearchDiv>
       </Hero>
       <Posts>
          {postagens}
       </Posts>
+      <FooterSection />
     </Wrapper>
 
 
