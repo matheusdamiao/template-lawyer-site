@@ -5,57 +5,59 @@ import zap from '../images/zap-logo.svg'
 
 const StyledHeroSection = styled.div`
     width: 100%;
-    height: calc(120vh - 200px);
+    height: calc(100vh - 350px);
     background-image: url(${heroBg});
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-color: #00041C;
+    background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     padding-top: 200px;
 
     @media screen and (max-width: 760px){
         padding-top: 50px;
         background-position: 50% 10%;
+        height: calc(100vh - 150px);
     }
     
 `
 
 const Title = styled.h1`
     font-family: 'Montserrat';
-    font-style: normal;
     font-weight: 500;
-    font-size: 61px;
-    line-height: 74px;
-    text-align: right;
+    font-size: 45px;
+    line-height: auto;
+    text-align: left;
     letter-spacing: -0.5px;
     margin: 0;
-    color: #FFFFFF;
+    color: #00041C;
     max-width: 70%;
-    padding-right: 90px;
+    padding-left: 90px;
 
     @media screen and (max-width: 760px){
         font-size: 40px;
         line-height: 50px;
         max-width: 90%;
-        padding-right: 20px;
+        padding-left: 30px;
     }
 `
 
 const Linha = styled.span`
     
-    border: 3px solid #B29786;
+    border: 2px solid #3D2B21;
     width: 300px;
-    margin-right: 100px;
+    margin-top: 20px;
+    margin-left: 95px;
 
     
     @media screen and (max-width: 760px){
         font-size: 12px;
-        margin-right: 20px;
-        border: 2px solid #634636;
+        background-color: #2F3245;
+        margin-left: 35px;
+        
     }
 
 `
@@ -64,17 +66,17 @@ const SubTitle = styled.h3`
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 200;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 37px;
     text-align: right;
     letter-spacing: -0.218294px;
-    color: #FFFFFF;
-    padding-right: 90px;
+    color: #00041C;
+    padding-left: 90px;
     margin-top: 20px;
 
     @media screen and (max-width: 760px){
         font-size: 20px;
-        padding-right: 20px;
+        padding-left: 30px;
 
     }
 
@@ -83,9 +85,9 @@ const Btn = styled.button`
     max-width: 300px;
     width: 100%;
     padding: 23px 35px;
-    background: #634636;
+    background: #3A3E54;
     border-radius: 9px;
-    margin-right: 90px;
+    margin-left: 90px;
     border: none;
     color: #FFFF;
     font-family: 'Montserrat';
@@ -98,7 +100,7 @@ const Btn = styled.button`
     cursor: pointer;
 
     @media screen and (max-width: 760px){
-        margin-right: 20px;
+        margin-left: 30px;
         padding: 9px 10px;
         max-width: 250px;
         font-size: 12px;

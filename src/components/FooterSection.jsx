@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from "../images/logo.svg"
+import logo from "../images/logo-nobg.svg"
 import {PhoneCall} from '@styled-icons/boxicons-solid/PhoneCall'
 import {LocationPin} from '@styled-icons/entypo/LocationPin'
 import { TimeFive } from '@styled-icons/boxicons-solid/TimeFive'
@@ -8,7 +8,8 @@ import { TimeFive } from '@styled-icons/boxicons-solid/TimeFive'
 
 export const Wrapper = styled.div`
     width: 100%;
-    background-color: #0A0C1A;
+    /* background-color: #0A0C1A; */
+    background-color: #0C0A0A;
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat';

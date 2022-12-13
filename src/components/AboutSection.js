@@ -27,10 +27,13 @@ const Wrapper = styled.div`
 `
 
 const Foto = styled.img`
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
   position: relative;
   right: 90%;
-  bottom: 90%;
+  bottom: 80%;
   opacity: 0.8;
 
   @media screen and (max-width: 1100px) {
@@ -73,7 +76,7 @@ const BodyText = styled.p`
   letter-spacing: 0.5px;
   color: #182260;
   width: 80%;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 50px;
   box-sizing: border-box;
   padding: 0 20px;

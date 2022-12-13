@@ -24,9 +24,11 @@ import { AddLink } from '@styled-icons/material/AddLink'
   padding-bottom: 100px;
 
 
+
+    
   a{
     text-decoration: none;
-   
+    color: white;
   }
   
 `
@@ -36,15 +38,27 @@ import { AddLink } from '@styled-icons/material/AddLink'
   flex-direction: column;
   align-items: center;
   color: white;
+  padding-top: 20px;
+
+  @media screen and (max-width: 800px) {
+    padding-top: 100px; 
+    }
+ 
 
 `
  const Title = styled.h1`
   font-family: 'Montserrat';
   font-weight: 500;
-  font-size: 60px;
+  font-size: 45px;
   width: 80%;
   text-align: center;
   margin-bottom: 50px;
+
+  @media screen and (max-width: 800px) {
+     font-size: 35px; 
+     margin-bottom: 20px;
+    }
+  
   
 `
  const Date = styled.small`
@@ -52,13 +66,20 @@ color: #A3A3A3;
 `
 
 const PostImg = styled.img`
-
+  width: 100%;
+  max-width: 800px;
 `
  const PostInfo = styled.div`
   display: flex;
   width: 80%;
   justify-content: space-around;
   padding-bottom: 40px;
+
+  @media screen and (max-width: 800px) {
+      padding-top: 20px;
+      flex-direction: column;
+      align-items: center;
+    }
 `
  const Info = styled.div`
   display: flex;
@@ -74,6 +95,10 @@ const Author = styled.div`
  const Avatar = styled.img`
     max-height: 80px;
 
+
+    @media screen and (max-width: 800px) {
+     max-height: 50px;
+    }
 `
  const Name = styled.p`
     margin: 0;
@@ -95,6 +120,11 @@ const Tags = styled.div`
   gap: 15px;
   color: black;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+     padding-top: 20px;
+    }
+
 `
 
  const Tag = styled.p`
@@ -104,6 +134,12 @@ const Tags = styled.div`
   color: white;
   font-size: 12px;
   border-radius: 9px;
+
+  @media screen and (max-width: 800px) {
+     font-size: 10px; 
+    }
+
+  
 `
  const PostBody = styled.p`
     padding-top: 50px;
@@ -113,6 +149,10 @@ const Tags = styled.div`
     line-height: 170%;
     font-weight: 300;
     font-family: 'Montserrat';
+
+    @media screen and (max-width: 800px) {
+     width: 85%;
+    }
 `
 
  const OtherPosts = styled.div`
@@ -121,6 +161,10 @@ const Tags = styled.div`
     width: 100%;
     gap: 100px;
     justify-content: center;
+
+    @media screen and (max-width: 800px) {
+      flex-wrap: wrap; 
+    }
 `
 
 const Line = styled.span`

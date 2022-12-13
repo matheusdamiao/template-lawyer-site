@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components"
 import React, { useState } from "react"
-import logo from "../images/logo.svg"
+import logo from "../images/logo-nobg.svg"
 
 const Menu = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ const Menu = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 0.2rem;
-  background-color: #00041c;
+  background-color: #2F3245;
   margin: 0;
   padding: 0;
   position: fixed;
@@ -56,7 +56,6 @@ const SideMenu = styled.div`
   right: 0;
   position: absolute;
   height: calc(100% - 100px);
-  background-color: black;
   color: white;
   transition: all 0.5s;
   overflow: hidden;
@@ -66,7 +65,7 @@ const SideMenu = styled.div`
   z-index: 9999;
   flex-direction: column;
   gap: 25px;
-  background-color: #00041c;
+  background-color: #2F3245;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   position: fixed;
@@ -101,7 +100,7 @@ const MenuMobile = () => {
   return (
     <>
       <Menu>
-        <Logo src={logo} alt="logo" width={250} />
+        <Logo src={logo} alt="logo" width={200} />
         <HamburgerMenu
           isActive={isActive}
           onClick={() => setIsActive(!isActive)}

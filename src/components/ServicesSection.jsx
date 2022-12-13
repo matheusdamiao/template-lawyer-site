@@ -10,43 +10,43 @@ import { MonetizationOn } from "@styled-icons/material/MonetizationOn"
 import { MobileFriendly } from "@styled-icons/material/MobileFriendly"
 
 export const IconPeople = styled(People)`
-  max-width: 70px;
+  max-width: 50px;
 
   @media screen and (max-width: 800px) {
-    max-width: 50px;
+    max-width: 40px;
   }
 `
 export const IconCart = styled(CartCheck)`
-  max-width: 70px;
+  max-width: 50px;
   @media screen and (max-width: 800px) {
-    max-width: 50px;
+    max-width: 40px;
   }
 `
 export const IconContract = styled(DocumentCheckmark)`
-  max-width: 70px;
+  max-width: 50px;
   @media screen and (max-width: 800px) {
-    max-width: 50px;
+    max-width: 40px;
   }
 `
 
 export const IconSuit = styled(BusinessTime)`
-  max-width: 70px;
+  max-width: 50px;
   @media screen and (max-width: 800px) {
-    max-width: 50px;
+    max-width: 40px;
   }
 `
 
 export const IconMoney = styled(MonetizationOn)`
-  max-width: 70px;
+  max-width: 50px;
   @media screen and (max-width: 800px) {
-    max-width: 50px;
+    max-width: 40px;
   }
 `
 
 export const IconMobile = styled(MobileFriendly)`
-  max-width: 70px;
+  max-width: 50px;
   @media screen and (max-width: 800px) {
-    max-width: 50px;
+    max-width: 40px;
   }
 `
 
@@ -59,16 +59,18 @@ export const Wrapper = styled.div`
 `
 
 export const WrapperContent = styled.div`
-  padding-top: 120px;
+  padding-top: 50px;
   padding-bottom: 120px;
   height: 100%;
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding-left: 100px;
   padding-right: 100px;
-  gap: 50px;
+  gap: 30px;
 
   @media screen and (max-width: 800px) {
     padding-left: 0;
