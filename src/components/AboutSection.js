@@ -124,7 +124,6 @@ const AboutSection = () => {
 
 
   const [isReturnBtn, setIsReturnBtn] = useState(false)
-  const [isClicked, setIsClicked] = useState(false)
 
   
 

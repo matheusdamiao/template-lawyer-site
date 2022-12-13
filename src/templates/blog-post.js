@@ -15,7 +15,7 @@ import {TwitterWithCircle} from '@styled-icons/entypo-social/TwitterWithCircle'
 import { AddLink } from '@styled-icons/material/AddLink'
 
 
-export const WrapperPost = styled.div`
+ const WrapperPost = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,14 +31,14 @@ export const WrapperPost = styled.div`
   
 `
 
-export const Heading = styled.div`
+ const Heading = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
 
 `
-export const Title = styled.h1`
+ const Title = styled.h1`
   font-family: 'Montserrat';
   font-weight: 500;
   font-size: 60px;
@@ -47,35 +47,35 @@ export const Title = styled.h1`
   margin-bottom: 50px;
   
 `
-export const Date = styled.small`
+ const Date = styled.small`
 color: #A3A3A3;
 `
 
-export const PostImg = styled.img`
+const PostImg = styled.img`
 
 `
-export const PostInfo = styled.div`
+ const PostInfo = styled.div`
   display: flex;
   width: 80%;
   justify-content: space-around;
   padding-bottom: 40px;
 `
-export const Info = styled.div`
+ const Info = styled.div`
   display: flex;
   gap: 10px;
   flex-direction: column;
 `
-export const Author = styled.div`
+const Author = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
 
 `
-export const Avatar = styled.img`
+ const Avatar = styled.img`
     max-height: 80px;
 
 `
-export const Name = styled.p`
+ const Name = styled.p`
     margin: 0;
     font-family: 'Montserrat';
     font-size: 15px;
@@ -84,20 +84,20 @@ export const Name = styled.p`
         font-size: 12px;
     }
 `
-export const Bio = styled.p`
+ const Bio = styled.p`
    font-family: 'Montserrat';
     color: #A3A3A3;
     font-size: 12px;
     margin: 0;
 `
-export const Tags = styled.div`
+const Tags = styled.div`
   display: flex;
   gap: 15px;
   color: black;
   align-items: center;
 `
 
-export const Tag = styled.p`
+ const Tag = styled.p`
    font-family: 'Montserrat';
   background-color: rgb(25, 40, 133);
   padding: 4px 15px;
@@ -105,7 +105,7 @@ export const Tag = styled.p`
   font-size: 12px;
   border-radius: 9px;
 `
-export const PostBody = styled.p`
+ const PostBody = styled.p`
     padding-top: 50px;
     width: 55%;
     margin: 0 auto;
@@ -115,7 +115,7 @@ export const PostBody = styled.p`
     font-family: 'Montserrat';
 `
 
-export const OtherPosts = styled.div`
+ const OtherPosts = styled.div`
     padding-top: 100px;
     display: flex;
     width: 100%;
@@ -123,13 +123,13 @@ export const OtherPosts = styled.div`
     justify-content: center;
 `
 
-export const Line = styled.span`
+const Line = styled.span`
   margin-top: 80px;
   width: 400px;
   border: 2px solid white;
 `
 
-export const OldPost = styled.div`
+ const OldPost = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -140,7 +140,7 @@ export const OldPost = styled.div`
   }
 `
 
-export const NextPost = styled.div`
+ const NextPost = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -151,19 +151,19 @@ export const NextPost = styled.div`
   }
 `
 
-export const SharePost = styled.div`
+ const SharePost = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
 `
-export const ShareTitle = styled.h3`
+const ShareTitle = styled.h3`
 font-family: 'Montserrat';
   font-size: 14px;
   font-weight: 400;
 `
 
-export const Links = styled.div`
+ const Links = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
@@ -185,7 +185,7 @@ export const Links = styled.div`
     
 `
 
-export const LinkedinIcon = styled(LinkedinWithCircle)`
+ const LinkedinIcon = styled(LinkedinWithCircle)`
  width: 50px;
  transition: 0.2s;
 
@@ -194,7 +194,7 @@ export const LinkedinIcon = styled(LinkedinWithCircle)`
 }
 `
 
-export const FacebookIcon = styled(FacebookCircle)`
+ const FacebookIcon = styled(FacebookCircle)`
   width: 55px;
   transition: 0.2s;
 
@@ -202,8 +202,7 @@ export const FacebookIcon = styled(FacebookCircle)`
   color: white;
 }
 `
-
-export const TwitterIcon = styled(TwitterWithCircle)`
+ const TwitterIcon = styled(TwitterWithCircle)`
   width: 50px;
   transition: 0.2s;
 
@@ -212,7 +211,7 @@ export const TwitterIcon = styled(TwitterWithCircle)`
 }
 `
 
-export const LinkIcon = styled(AddLink)`
+ const LinkIcon = styled(AddLink)`
   width: 50px;
   color: rgb(26, 26, 255);
   
@@ -224,7 +223,7 @@ export const LinkIcon = styled(AddLink)`
 
 `
 
-export const CopyLink = styled.div`
+ const CopyLink = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -283,7 +282,7 @@ const BlogPostTemplate = ({
           </Info>
         </Author>
         <Tags>
-          {post.frontmatter.hashtags.map((tag)=>{
+          {post.frontmatter.hashtags?.map((tag)=>{
             return <Tag>{tag}</Tag>
           })}
         </Tags>
@@ -314,39 +313,45 @@ const BlogPostTemplate = ({
       <OtherPosts>
         
 
-        {previous &&
-                <OldPost>
-                <a href={next.fields.slug} alt=''>Artigo anterior</a>
-                <BlogCard
-                title={next.frontmatter.title}
-                link={next.fields.slug}
-                imagem={next.frontmatter.imagem}
-                data={next.frontmatter.date}
-                description={next.frontmatter.description}
-                hashtags={next.frontmatter.hashtags}
-                author={next.frontmatter.author}
-                avatar={next.frontmatter.avatar}
-                />
-              </OldPost>  
+
+
+        {previous && 
+               <OldPost>
+               <a href={previous?.fields.slug} alt=''>Artigo anterior </a>
+              <BlogCard
+              title={previous?.frontmatter.title}
+              link={previous?.fields.slug}
+              imagem={previous?.frontmatter.imagem}
+              data={previous?.frontmatter.date}
+              description={previous?.frontmatter.description}
+              hashtags={previous?.frontmatter.hashtags}
+              author={previous?.frontmatter.author}
+              avatar={previous?.frontmatter.avatar}
+              />
+             </OldPost>  
+         } 
+
+         
+        {next &&
+
+              <NextPost>
+
+                <a href={next.fields.slug} alt=''> Próximo artigo </a>
+               <BlogCard
+               title={next.frontmatter.title}
+               link={next.fields.slug}
+               imagem={next.frontmatter.imagem}
+               data={next.frontmatter.date}
+               description={next.frontmatter.description}
+               hashtags={next.frontmatter.hashtags}
+               author={next.frontmatter.author}
+               avatar={next.frontmatter.avatar}
+               />
+              
+              </NextPost>
+              
         
         } 
-
-
-        {next && 
-              <NextPost>
-              <a href={previous.fields.slug} alt=''>Próximo artigo</a>
-              <BlogCard
-              title={previous.frontmatter.title}
-              link={previous.fields.slug}
-              imagem={previous.frontmatter.imagem}
-              data={previous.frontmatter.date}
-              description={previous.frontmatter.description}
-              hashtags={previous.frontmatter.hashtags}
-              author={previous.frontmatter.author}
-              avatar={previous.frontmatter.avatar}
-              />
-            </NextPost>
-         } 
 
       </OtherPosts>
     </WrapperPost>
