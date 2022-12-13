@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import styled from 'styled-components'
 import { Link, graphql } from "gatsby"
-
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Media from "react-media"
 import MenuMobile from "../components/MenuMobile"
@@ -15,6 +13,7 @@ import {TwitterWithCircle} from '@styled-icons/entypo-social/TwitterWithCircle'
 import { AddLink } from '@styled-icons/material/AddLink'
 
 
+
  const WrapperPost = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,10 +21,6 @@ import { AddLink } from '@styled-icons/material/AddLink'
   background-color: #0A0C1A;
   color: white;
   padding-bottom: 100px;
-
-
-
-    
   a{
     text-decoration: none;
     color: white;
@@ -38,10 +33,10 @@ import { AddLink } from '@styled-icons/material/AddLink'
   flex-direction: column;
   align-items: center;
   color: white;
-  padding-top: 20px;
+  padding-top: 50px;
 
   @media screen and (max-width: 800px) {
-    padding-top: 100px; 
+    padding-top: 150px; 
     }
  
 
@@ -284,7 +279,42 @@ font-family: 'Montserrat';
   }
 `
 
+const BreadCrumb = styled.div`
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  font-family: 'Montserrat';
 
+  a{
+    color: #f2f2f2;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
+
+  small{
+    font-size: 16px;
+    color: #f2f2f2;
+    font-weight: 600;
+  }
+
+  p {
+    color: #f2f2f2;
+    font-size: 12px;
+    text-decoration: underline;
+
+  }
+
+`
 
 
 const BlogPostTemplate = ({
@@ -312,6 +342,14 @@ const BlogPostTemplate = ({
     <Media query="(min-width: 900px)" render={() => <MenuDesktop />} />
 
     <WrapperPost>
+      <BreadCrumb>
+        <a href='/'>Home </a> 
+        <small> &gt; </small> 
+        <a href='/blog'> Blog </a>
+        <small> &gt; </small> 
+        <p> {post.frontmatter.title}</p>
+      </BreadCrumb>
+
       <Heading>
         <Title>{post.frontmatter.title}</Title>
         <Date>{post.frontmatter.date}</Date>
@@ -366,7 +404,7 @@ const BlogPostTemplate = ({
               title={previous?.frontmatter.title}
               link={previous?.fields.slug}
               imagem={previous?.frontmatter.imagem}
-              data={previous?.frontmatter.date}
+              date={previous?.frontmatter.date}
               description={previous?.frontmatter.description}
               hashtags={previous?.frontmatter.hashtags}
               author={previous?.frontmatter.author}
@@ -385,7 +423,7 @@ const BlogPostTemplate = ({
                title={next.frontmatter.title}
                link={next.fields.slug}
                imagem={next.frontmatter.imagem}
-               data={next.frontmatter.date}
+               date={next.frontmatter.date}
                description={next.frontmatter.description}
                hashtags={next.frontmatter.hashtags}
                author={next.frontmatter.author}

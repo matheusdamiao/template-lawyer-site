@@ -10,7 +10,7 @@ public_folder: /assets
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "content/"
+    folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -34,6 +34,6 @@ collections:
           label: "Author",
           name: "author",
           widget: "select",
-          options: ["Thays Medeiros", "Vanessa Cupulille"],
+          options: ["Pedro Menezes"],
         }
       - { label: "Avatar", name: "avatar", widget: "image" }
