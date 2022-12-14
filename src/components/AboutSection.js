@@ -100,9 +100,6 @@ const StyledBtn = styled(Btn)`
 
 export const ReturnBtn = styled(ArrowUpSquareFill)`
     position: fixed;
-    /* top: 80%; */
-    /* max-width: 50px; */
-    /* width: 100%; */
     color: gray;
     max-width: 50px;
     cursor: pointer;

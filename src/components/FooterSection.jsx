@@ -30,9 +30,9 @@ export const WrapperContent = styled.div`
     }
 `
 export const Logo = styled.img`
-    width: 25%;
-    @media screen and (max-width: 800px) {
-        width: 80%;
+    width: 300px;
+    @media screen and (max-width: 500px) {
+        width: 60%;
     }
 
 `
@@ -92,6 +92,11 @@ export const Link = styled.a`
 export const Rights = styled.p`
     text-align: center;
     color: white;
+
+    @media screen and (max-width: 800px) {
+        font-size: 12px;
+    }
+    
    
 `
 
@@ -138,7 +143,7 @@ export const FooterSection = () => {
                  Todos os direitos reservados a Pedro Menezes advocacia ltda.
             </Rights>
             <Author>
-                Desenvolvido por Matheus Damião 
+            Desenvolvido <a style={{textDecoration: 'none', color: 'white'}} href='https://matheusdamiao.netlify.app' target='_blank'> por Matheus Damião </a> 
             </Author>
         </Wrapper>
     )

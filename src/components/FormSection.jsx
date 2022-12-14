@@ -15,7 +15,6 @@ export const Wrapper = styled.div`
     width: 100%;
     min-height: 100vh;
     padding-bottom: 100px;
-    margin-bottom: 50px;
 `
 
 export const Div = styled.div`
@@ -187,7 +186,7 @@ export const FormSection = () =>{
 
 
     return(
-        <Wrapper>
+        <Wrapper id='contact'>
             <Div>
                 <Heading
                     isWhite={false}

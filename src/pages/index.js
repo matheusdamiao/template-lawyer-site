@@ -13,12 +13,12 @@ import { BlogSection } from "../components/BlogSection"
 import { FormSection } from "../components/FormSection"
 import { FooterSection } from "../components/FooterSection"
 
-const Home = () => {
+const Home = ({location}) => {
   return (
     <>
       <Media query="(max-width: 900px)" render={() => <MenuMobile />} />
 
-      <Media query="(min-width: 900px)" render={() => <MenuDesktop />} />
+      <Media query="(min-width: 900px)" render={() => <MenuDesktop location={location}/>} />
 
       <HeroSection />
       <AboutSection />

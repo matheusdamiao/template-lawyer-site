@@ -50,7 +50,7 @@ const H3 = styled.h3`
 `
 
 const Linha = styled.span`
-  border: 3px solid #634636;
+  border: 2px solid #634636;
   width: 300px;
   margin: 0px 20px;
 

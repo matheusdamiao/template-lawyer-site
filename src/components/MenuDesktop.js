@@ -5,7 +5,7 @@ import phone from '../images/phone-icon.svg'
 import insta from '../images/insta-icon.svg'
 import linkedin from '../images/linkedin-icon.svg'
 import face from '../images/face-icon.svg'
-
+import { Link } from 'gatsby'
 
 
 const Menu = styled.div`
@@ -43,16 +43,50 @@ const MenuLinks = styled.ul`
 
 `
 
-const Link = styled.li`
-    padding: 0.8em 1em;
+const Links = styled(Link)`
+    padding: 0.8em 1.2em;
     border-radius: 9px;
     cursor: pointer;
     white-space: nowrap;
     font-weight: 500;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+
+    :hover {
+        background-color: white;
+        color: #0A0C1A;
+    }
+`
+const LinkHome = styled(Links)`
+
+    :hover{
+        cursor: pointer;
+        background-color: transparent;
+    }
+`
+
+const LinkContato = styled(Links)`
+    text-decoration: ${({location}) => location?.pathname == '/#contact' ? 'underline' : 'null'};
+`
+
+const LinkBlog = styled(Links)`
+    background-color: ${({location}) => location?.pathname == '/blog' ? 'white' : 'null'};
+    color: ${({location}) => location?.pathname == '/blog' ? '#0A0C1A' : 'null'};
+`
+
+const LinkAbout = styled(Links)`
+    background-color: ${({location}) => location?.pathname == '/about' ? 'white' : 'null'};
+    color: ${({location}) => location?.pathname == '/about' ? '#0A0C1A' : 'null'};
+`
+
+const LinkService = styled(Links)`
+     background-color: ${({location}) => location?.pathname == '/services' ? 'white' : 'null'};
+    color: ${({location}) => location?.pathname == '/services' ? '#0A0C1A' : 'null'};
 `
 
 const Imagem = styled.img`
-    padding-left: 40px;
+    padding-left: 20px;
 `
 
 
@@ -65,18 +99,21 @@ const Wrapper = styled.div`
     align-items: center;
 `
 
-const MenuDesktop = () => {
+const MenuDesktop = ({location}) => {
+
   return (
-    <Menu>
+    <Menu id='menu'>
 
         <Wrapper>
-            <Imagem src={logo} width='250'/>
+            <LinkHome to='/'>
+                <Imagem src={logo} width='250'/>
+            </LinkHome>
             <MenuLinks>
               
-                <Link> sobre nós</Link>
-                <Link> áreas de atuação</Link>
-                <Link> blog</Link>
-                <Link> contato</Link>
+                <LinkAbout location={location} to='/about'> o escritório </LinkAbout>
+                <LinkService location={location} to='/services'> áreas de atuação </LinkService>
+                <LinkBlog location={location} to='/blog'> blog</LinkBlog>
+                <LinkContato to='/#contact'> contato</LinkContato>
 
               
             </MenuLinks>

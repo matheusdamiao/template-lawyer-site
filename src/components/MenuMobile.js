@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components"
 import React, { useState } from "react"
 import logo from "../images/logo-nobg.svg"
+import { Link } from "gatsby"
 
 const Menu = styled.div`
   width: 100%;
@@ -71,13 +72,14 @@ const SideMenu = styled.div`
   position: fixed;
 `
 
-const Link = styled.a`
+const Links = styled(Link)`
   padding: 0.8em 1em;
   cursor: pointer;
   white-space: nowrap;
   font-weight: 500;
   text-decoration: none;
   text-align: center;
+  color: white;
 
   :visited {
     text-decoration: none;
@@ -94,13 +96,23 @@ const Link = styled.a`
   }
 `
 
+export const LinkLogo = styled(Links)`
+
+  :hover {
+      background-color: transparent;
+      
+  }
+`
+
 const MenuMobile = () => {
   const [isActive, setIsActive] = useState(false)
 
   return (
     <>
-      <Menu>
-        <Logo src={logo} alt="logo" width={200} />
+      <Menu id='menu'>
+        <LinkLogo to='/'>
+          <Logo src={logo} alt="logo" width={200} />
+        </LinkLogo>
         <HamburgerMenu
           isActive={isActive}
           onClick={() => setIsActive(!isActive)}
@@ -111,10 +123,10 @@ const MenuMobile = () => {
         </HamburgerMenu>
       </Menu>
       <SideMenu isActive={isActive}>
-        <Link href="#"> Sobre nós</Link>
-        <Link href="#"> Áreas de atuação </Link>
-        <Link href="#"> Blog</Link>
-        <Link href="#"> Contato</Link>
+        <Links href="/about"> Sobre nós</Links>
+        <Links href="/services"> Áreas de atuação </Links>
+        <Links to="/blog"> Blog</Links>
+        <Links href="#contact"> Contato</Links>
       </SideMenu>
     </>
   )

@@ -96,10 +96,7 @@ export const TeamSection = () => {
           <Bio>
             Lorem ipsum dolorem etc etc Lorem ipsum dolorem etc etc Lorem ipsum
             dolorem etc etc Lorem ipsum dolorem etc etc Lorem ipsum dolorem etc
-            etc Lorem ipsum dolorem etc etc. Lorem ipsum dolorem etc etc Lorem
-            ipsum dolorem etc etc Lorem ipsum dolorem etc etc Lorem ipsum
-            dolorem etc etc Lorem ipsum dolorem etc etc Lorem ipsum dolorem etc
-            etc
+            etc Lorem ipsum dolorem etc etc. 
           </Bio>
           <Button>Saiba mais</Button>
         </BioAdvogado>
@@ -109,10 +106,7 @@ export const TeamSection = () => {
           <Bio>
             Lorem ipsum dolorem etc etc Lorem ipsum dolorem etc etc Lorem ipsum
             dolorem etc etc Lorem ipsum dolorem etc etc Lorem ipsum dolorem etc
-            etc Lorem ipsum dolorem etc etc. Lorem ipsum dolorem etc etc Lorem
-            ipsum dolorem etc etc Lorem ipsum dolorem etc etc Lorem ipsum
-            dolorem etc etc Lorem ipsum dolorem etc etc Lorem ipsum dolorem etc
-            etc
+            etc Lorem ipsum dolorem etc etc. 
           </Bio>
           <Button>Saiba mais</Button>
         </BioAdvogado>

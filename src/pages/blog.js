@@ -13,7 +13,7 @@ import {BlogCard} from '../components/BlogCard.jsx'
 import { FooterSection } from "../components/FooterSection"
 
 
-const BlogIndex = ({ data }) => {
+const BlogIndex = ({ data, location}) => {
 
   const queryData = data.allMarkdownRemark.nodes
 
@@ -97,8 +97,8 @@ const BlogIndex = ({ data }) => {
 
   return (
     <>
-    <Media query="(max-width: 900px)" render={() => <MenuMobile />} />
-    <Media query="(min-width: 900px)" render={() => <MenuDesktop />} />
+    <Media query="(max-width: 900px)" render={() => <MenuMobile location={location} />} />
+    <Media query="(min-width: 900px)" render={() => <MenuDesktop location={location}/>} />
     
     <Wrapper>
       <BreadCrumb>
@@ -107,13 +107,12 @@ const BlogIndex = ({ data }) => {
         <p> Blog </p>
       </BreadCrumb>
       <Hero>
-        <Title>BLOG</Title>
-        <SubTitle>leia os artigos do nosso blog</SubTitle>
+        <Title>Conheça nosso blog</Title>
         <Stroke/>
+        <SubTitle>Aprenda mais sobre seus direitos</SubTitle>
         <SearchDiv >
           <SearchIcon/>
           <Input placeholder='pesquisar' type='text' onChange={e=> inputFunction(e)}/>
-          {/* <Button>Pesquisar </Button> */}
         </SearchDiv>
       </Hero>
       <Posts>
@@ -203,41 +202,65 @@ export const Hero = styled.div`
     justify-content: center;
     color: white;
     position: relative;
+
+    @media screen and (max-width: 800px) {
+      background-position: -200px -40px;
+    }
 `
-export const Title = styled.h2`
-  margin: 0;
-  font-family: 'Montserrat';
-  font-weight: 400;
-  font-size: 60px;
-  padding-left: 50px;
-  color: #00041C;
+const Title = styled.h1`
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 45px;
+    line-height: auto;
+    text-align: left;
+    letter-spacing: -0.5px;
+    margin: 0;
+    color: #00041C;
+    max-width: 70%;
+    padding-left: 90px;
 
+    @media screen and (max-width: 760px){
+        font-size: 40px;
+        line-height: 50px;
+        max-width: 90%;
+        padding-left: 30px;
+    }
+`
+
+
+const SubTitle = styled.h3`
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 25px;
+    line-height: 37px;
+    text-align: right;
+    letter-spacing: -0.218294px;
+    color: #00041C;
+    padding-left: 90px;
+    margin-top: 20px;
+
+    @media screen and (max-width: 760px){
+        font-size: 20px;
+        padding-left: 30px;
+
+    }
 
 `
-export const SubTitle = styled.h3`
-  margin: 0;
-  font-family: 'Montserrat';
-  font-weight: 200;
-  font-size: 30px;
-  padding-left: 50px;
-  margin-top: 10px;
-  color: #00041C;
 
 
-`
 export const Stroke = styled.span`
-    border: 2px solid #B29786;
+    border: 2px solid #3D2B21;
     width: 300px;
-    margin-top: 10px;
-    margin-left: 50px;
+    margin-top: 20px;
+    margin-left: 95px;
 
     
     @media screen and (max-width: 760px){
         font-size: 12px;
-        margin-right: 20px;
-        width: 100%;
-        max-width: 100px;
-        border: 2px solid #634636;
+        background-color: #2F3245;
+        margin-left: 35px;
+        
     }
 `
 
@@ -247,6 +270,10 @@ export const SearchDiv = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 800px) {
+      width: 80%;
+    }
 `
 
 export const SearchIcon = styled(Search)`
