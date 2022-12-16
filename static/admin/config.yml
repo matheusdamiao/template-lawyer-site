@@ -27,7 +27,7 @@ collections:
           widget: "string",
           pattern: [".{12,}", "Must have at least 12 characters"],
         }
-      - { label: "Hashtags", name: "hashtags", widget: "list", max: 4 }
+      - { label: "Hashtags", name: "hashtags", widget: "list", max: 3 }
       - { label: "imagem", name: "imagem", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
       - {

@@ -10,7 +10,7 @@ const Menu = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 0.2rem;
-  background-color: #2F3245;
+  background-color: #2f3245;
   margin: 0;
   padding: 0;
   position: fixed;
@@ -30,6 +30,18 @@ const HamburgerMenu = styled.div`
   gap: 5px;
   padding-right: 20px;
   cursor: pointer;
+
+  span:first-child {
+    transition: 0.4s;
+    transform: ${props =>
+      props.isActive === true ? "rotate(45deg) translate(4px, 8px)" : null};
+  }
+
+  span:nth-child(2) {
+    transition: 0.4s;
+    transform: ${props =>
+      props.isActive === true ? "rotate(-45deg) translate(-3px, -2px)" : null};
+  }
 
   span:last-child {
     display: ${props => (props.isActive === true ? "none" : "block")};
@@ -66,7 +78,7 @@ const SideMenu = styled.div`
   z-index: 9999;
   flex-direction: column;
   gap: 25px;
-  background-color: #2F3245;
+  background-color: #2f3245;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   position: fixed;
@@ -97,10 +109,8 @@ const Links = styled(Link)`
 `
 
 export const LinkLogo = styled(Links)`
-
   :hover {
-      background-color: transparent;
-      
+    background-color: transparent;
   }
 `
 
@@ -109,8 +119,8 @@ const MenuMobile = () => {
 
   return (
     <>
-      <Menu id='menu'>
-        <LinkLogo to='/'>
+      <Menu id="menu">
+        <LinkLogo to="/">
           <Logo src={logo} alt="logo" width={200} />
         </LinkLogo>
         <HamburgerMenu

@@ -15,10 +15,9 @@ import { FooterSection } from "../components/FooterSection"
 const BlogIndex = ({ data, location }) => {
   const queryData = data.allMarkdownRemark.nodes
 
-  const tags = data.allMarkdownRemark.nodes.frontmatter?.hashtags
-
   const [fullPostsList, setFullPostsList] = useState([])
   const [allTags, setAllTags] = useState([])
+  const [allTitles, setAllTitles] = useState([])
 
   const emptyInput = ""
   const [searchState, setSearchState] = useState({
@@ -69,19 +68,40 @@ const BlogIndex = ({ data, location }) => {
   }
 
   const getAllTags = data => {
-    const tags = Array.from(new Set([data]))
-    setAllTags(tags)
+    let hashtags = []
+    for (let i = 0; i < data.length; i++) {
+      hashtags.push(data[i].frontmatter.hashtags)
+    }
+
+    if (hashtags.length > 0) {
+      let outroArray = []
+      hashtags.map(array => array.map(tag => outroArray.push(tag)))
+      console.log(outroArray)
+
+      setAllTags(outroArray)
+    }
+  }
+
+  const getAllTitles = data => {
+    let titles = []
+    for (let i = 0; i < data.length; i++) {
+      titles.push(data[i].frontmatter.title)
+    }
+
+    setAllTitles(titles)
   }
 
   useEffect(() => {
     getAllPostsInfo(queryData)
-    getAllTags(tags)
+    getAllTags(queryData)
+    getAllTitles(queryData)
   }, [])
 
   useEffect(() => {
+    console.log(allTitles)
     console.log(allTags)
     console.log(fullPostsList)
-  }, [allTags, fullPostsList])
+  }, [allTitles, allTags, fullPostsList])
 
   const { query, postsFiltrados } = searchState
   const temInput = postsFiltrados && query !== emptyInput
