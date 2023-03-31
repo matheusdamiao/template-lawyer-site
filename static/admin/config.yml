@@ -22,12 +22,53 @@ collections:
           date_format: "DD.MM.YYYY",
         }
       - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog",
+        }
+      - {
           label: "Description",
           name: "description",
           widget: "string",
           pattern: [".{12,}", "Must have at least 12 characters"],
         }
       - { label: "Hashtags", name: "hashtags", widget: "list", max: 3 }
+      - { label: "imagem", name: "imagem", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "select",
+          options: ["Pedro Menezes"],
+        }
+      - { label: "Avatar", name: "avatar", widget: "image" }
+
+  - name: "agenda"
+    label: "Agenda"
+    folder: "content/agenda"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "agenda",
+        }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          date_format: "DD.MM.YYYY",
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          pattern: [".{12,}", "Must have at least 12 characters"],
+        }
       - { label: "imagem", name: "imagem", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
       - {

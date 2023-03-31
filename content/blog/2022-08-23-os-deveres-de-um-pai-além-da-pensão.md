@@ -2,6 +2,7 @@
 title: Os deveres de um pai além da pensão
 date: 2022-08-23T16:11:01.935Z
 description: saiba mais
+templateKey: blog
 hashtags:
   - paternidade
   - deveres
