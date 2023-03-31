@@ -70,7 +70,9 @@ const BlogIndex = ({ data, location }) => {
   const getAllTags = data => {
     let hashtags = []
     for (let i = 0; i < data.length; i++) {
-      hashtags.push(data[i].frontmatter.hashtags)
+      if (data[i].frontmatter.hashtags) {
+        hashtags.push(data[i].frontmatter.hashtags)
+      }
     }
 
     if (hashtags.length > 0) {
@@ -346,20 +348,24 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "blog" } } }
+      limit: 3
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
       nodes {
-        excerpt
-        fields {
-          slug
-        }
+        id
         frontmatter {
-          title
-          imagem
-          description
-          hashtags
-          date(formatString: "DD/MM/YYYY")
           author
           avatar
+          description
+          title
+          hashtags
+          date(formatString: "dddd DD MMMM YYYY", locale: "pt-BR")
+          imagem
+        }
+        fields {
+          slug
         }
       }
     }

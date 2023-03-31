@@ -2,6 +2,7 @@
 title: Maternidade e direitos trabalhistas
 date: 2022-08-23T17:49:00.120Z
 description: Saiba os direitos trabalhistas que toda mãe tem
+templateKey: blog
 hashtags:
   - maternidade
   - trabalhista
